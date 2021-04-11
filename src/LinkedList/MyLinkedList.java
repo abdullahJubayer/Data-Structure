@@ -133,7 +133,7 @@ public class MyLinkedList {
         //first = [10]@address1
 
         var temp_1 = firstNode;//[10,20,30,40]
-        var temp_2 = firstNode.getNextNode();//[20,30,40]
+        var temp_2 = temp_1.getNextNode();//[20,30,40]
         var temp_3 = temp_2.getNextNode();//[30,40]
             System.out.println(Arrays.toString(toArray()));
             temp_1.setNextNode(temp_3);//[10,30,40]
