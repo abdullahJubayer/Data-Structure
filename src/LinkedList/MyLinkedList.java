@@ -1,5 +1,6 @@
 package LinkedList;
 
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class MyLinkedList {
@@ -15,8 +16,8 @@ public class MyLinkedList {
     public void addFirst(int item) {
         var newNode = new Node(item);
         if (isEmpty()) {
-            firstNode=lastNode = newNode;
-        }else {
+            firstNode = lastNode = newNode;
+        } else {
             newNode.setNextNode(firstNode);
             firstNode = newNode;
         }
@@ -30,7 +31,7 @@ public class MyLinkedList {
     public void addLast(int item) {
         var node = new Node(item);
         if (isEmpty())
-            firstNode=lastNode=node;
+            firstNode = lastNode = node;
         else {
             lastNode.setNextNode(node);
             lastNode = node;
@@ -46,8 +47,8 @@ public class MyLinkedList {
         if (isEmpty()) {
             throw new NoSuchElementException("Item is Null");
         }
-        if (firstNode.getNextNode()==null)
-            firstNode=lastNode=null;
+        if (firstNode.getNextNode() == null)
+            firstNode = lastNode = null;
         else {
             var firstRef = firstNode.getNextNode();
             firstNode.setNextNode(null);
@@ -84,7 +85,7 @@ public class MyLinkedList {
 
     //contains
     //Time Complexity of this method is O(n)
-    public boolean contains(int item){
+    public boolean contains(int item) {
         return indexOf(item) != -1;
     }
 
@@ -95,28 +96,28 @@ public class MyLinkedList {
         var first = firstNode;
         while (first != null) {
             if (first.getItem() == item) return index;
-            first=first.getNextNode();
+            first = first.getNextNode();
             index++;
         }
         return -1;
     }
 
-    public int size(){
+    public int size() {
         int index = 0;
         var first = firstNode;
         while (first != null) {
             index++;
-            first=first.getNextNode();
+            first = first.getNextNode();
         }
         return index;
     }
 
-    public int[] toArray(){
-        var first=firstNode;
-        int[] arr=new int[size()];
-        for (int i=0;i<size();i++){
-            arr[i]=first.getItem();
-            first=first.getNextNode();
+    public int[] toArray() {
+        var first = firstNode;
+        int[] arr = new int[size()];
+        for (int i = 0; i < size(); i++) {
+            arr[i] = first.getItem();
+            first = first.getNextNode();
         }
         return arr;
     }
@@ -126,28 +127,21 @@ public class MyLinkedList {
         Because while loop depends on first node.
         if node size increase then execution time is increase
     * */
-    public void reverse(){
-        var temp=firstNode;
-        Node last=null;
+    //[10->20->30]
+    public void reverse() {
+        var last = lastNode;//[30]@address3
+        //first = [10]@address1
 
-        while (temp != null){
-            addFirst(temp.getItem());
-            if (last==null)
-                last=firstNode;
-            if (temp.getNextNode()==null)
-                break;
-            temp=temp.getNextNode();
-        }
-
-        temp=firstNode;
-        while (temp != null){
-            if (temp==last){
-                lastNode=temp;
-                temp.setNextNode(null);
-                break;
-            }
-            temp=temp.getNextNode();
-        }
+        var temp_1 = firstNode;//[10,20,30,40]
+        var temp_2 = firstNode.getNextNode();//[20,30,40]
+        var temp_3 = temp_2.getNextNode();//[30,40]
+            System.out.println(Arrays.toString(toArray()));
+            temp_1.setNextNode(temp_3);//[10,30,40]
+            System.out.println("temp_1 : " + Arrays.toString(toArray()));
+            temp_2.setNextNode(temp_1);//[20,10,30,40]
+            System.out.println("temp_2 : " + Arrays.toString(toArray()));
+            firstNode = temp_2;//[20,10,30,40]
+            System.out.println("Full Node : " + Arrays.toString(toArray()));
     }
 
     private boolean isEmpty() {
