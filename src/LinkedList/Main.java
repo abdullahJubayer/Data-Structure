@@ -9,6 +9,8 @@ public class Main {
         myLinkedList.addLast(20);
         myLinkedList.addLast(30);
         myLinkedList.addLast(40);
-        myLinkedList.reverse();
+         myLinkedList.reverse();
+
+        System.out.println(Arrays.toString(myLinkedList.toArray()));
     }
 }

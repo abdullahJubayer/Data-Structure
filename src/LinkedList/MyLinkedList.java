@@ -125,23 +125,25 @@ public class MyLinkedList {
 
     /*Time Complexity of this method is O(n).
         Because while loop depends on first node.
-        if node size increase then execution time is increase
+        if first node references more Node then execution time is increase
     * */
-    //[10->20->30]
     public void reverse() {
-        var last = lastNode;//[30]@address3
-        //first = [10]@address1
+        //Node=[10->20->30->40]
+        var privious = firstNode;
+        var current = firstNode.getNextNode();
+        privious.setNextNode(null);
+        while (current != null){
+            var next=current.getNextNode();
+            current.setNextNode(privious);
 
-        var temp_1 = firstNode;//[10,20,30,40]
-        var temp_2 = temp_1.getNextNode();//[20,30,40]
-        var temp_3 = temp_2.getNextNode();//[30,40]
-            System.out.println(Arrays.toString(toArray()));
-            temp_1.setNextNode(temp_3);//[10,30,40]
-            System.out.println("temp_1 : " + Arrays.toString(toArray()));
-            temp_2.setNextNode(temp_1);//[20,10,30,40]
-            System.out.println("temp_2 : " + Arrays.toString(toArray()));
-            firstNode = temp_2;//[20,10,30,40]
-            System.out.println("Full Node : " + Arrays.toString(toArray()));
+            privious=current;
+            current=next;
+
+        }
+
+        lastNode=firstNode;
+        lastNode.setNextNode(null);
+        firstNode=privious;
     }
 
     private boolean isEmpty() {
