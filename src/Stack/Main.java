@@ -5,7 +5,7 @@ import java.util.Stack;
 public class Main {
     public static void main(String[] args) {
         String str = "abcd";
-        String str2 = "[{(1+2)}]{}";
+        String str2 = "{}[(({1+2}))]";
 
         System.out.println(reverseString(str));
         System.out.println(isStringBalanced(str2));
@@ -35,7 +35,7 @@ public class Main {
                 if (c.equals(')') || c.equals('}') || c.equals(']') || c.equals('>')) {
                     if (characters.isEmpty())
                         return false;
-                    var openingTag = characters.peek();
+                    var openingTag = characters.pop();
                     Character closingTag = '0';
                     switch (openingTag) {
                         case '(':
@@ -53,13 +53,12 @@ public class Main {
                     }
                     if (closingTag.equals(c)) {
                         flag = 1;
-                        characters.pop();
                     } else {
                         flag = 0;
                     }
                 }
             }
         }
-        return flag == 1;
+        return flag == 1 && characters.isEmpty();
     }
 }
