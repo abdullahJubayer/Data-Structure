@@ -7,6 +7,7 @@ public class Main {
         String str = "abcd";
         String str2 = "{}[(({1+2}))]";
 
+
         System.out.println(reverseString(str));
         System.out.println(isStringBalanced(str2));
     }
