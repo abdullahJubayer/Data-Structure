@@ -17,10 +17,13 @@ public class Main {
         myStack.push(7);
         myStack.push(8);
         myStack.push(9);
-        System.out.println(Arrays.toString(myStack.getStackAsArray()));
+        System.out.println(myStack.toString());
         System.out.println(myStack.peek());
+        System.out.println(myStack.toString());
         System.out.println(myStack.pop());
-        System.out.println(Arrays.toString(myStack.getStackAsArray()));
+        System.out.println(myStack.toString());
+        myStack.push(9);
+        System.out.println(myStack.toString());
 
     }
 
