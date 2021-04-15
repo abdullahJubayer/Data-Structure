@@ -1,5 +1,6 @@
 package Stack;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 public class Main {
@@ -10,6 +11,17 @@ public class Main {
 
         System.out.println(reverseString(str));
         System.out.println(new Experssion().isBalanceExpression(str2));
+
+
+        MyStack myStack=new MyStack();
+        myStack.push(7);
+        myStack.push(8);
+        myStack.push(9);
+        System.out.println(Arrays.toString(myStack.getStackAsArray()));
+        System.out.println(myStack.peek());
+        System.out.println(myStack.pop());
+        System.out.println(Arrays.toString(myStack.getStackAsArray()));
+
     }
 
     public static StringBuffer reverseString(String str) {
