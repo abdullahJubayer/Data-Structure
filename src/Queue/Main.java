@@ -13,15 +13,20 @@ public class Main {
 //        queue.add(30);
 //        queue.add(40);
 //        System.out.println(reverseQueue(queue));
+//        System.out.println(queue.element());
+//        System.out.println(queue.offer(4));
+//        System.out.println(queue.peek());
+//        System.out.println(queue);
+//        System.out.println(queue.poll());
+//        System.out.println(queue);
 
         MyArrayQueue myArrayQueue=new MyArrayQueue();
         myArrayQueue.add(10);
         myArrayQueue.add(20);
         myArrayQueue.add(30);
-        myArrayQueue.remove();
-        myArrayQueue.remove();
-        myArrayQueue.remove();
-        myArrayQueue.add(10);
+        myArrayQueue.add(30);
+        myArrayQueue.add(30);
+        myArrayQueue.offer(30);
         System.out.println(myArrayQueue);
     }
 
