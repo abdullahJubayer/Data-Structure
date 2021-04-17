@@ -20,15 +20,22 @@ public class Main {
 //        System.out.println(queue.poll());
 //        System.out.println(queue);
 
-        MyArrayQueue myArrayQueue=new MyArrayQueue(5);
-        myArrayQueue.enqueue(5);
-        myArrayQueue.enqueue(20);
-        myArrayQueue.enqueue(20);
-        myArrayQueue.enqueue(20);
-        myArrayQueue.enqueue(20);
-        myArrayQueue.dequeue();
-        myArrayQueue.enqueue(30);
-        System.out.println(myArrayQueue);
+//        MyArrayQueue myArrayQueue=new MyArrayQueue(5);
+//        myArrayQueue.enqueue(5);
+//        myArrayQueue.enqueue(20);
+//        myArrayQueue.enqueue(20);
+//        myArrayQueue.enqueue(20);
+//        myArrayQueue.enqueue(20);
+//        myArrayQueue.dequeue();
+//        myArrayQueue.enqueue(30);
+//        System.out.println(myArrayQueue);
+
+        MyStackQueue myStackQueue=new MyStackQueue();
+        myStackQueue.enqueue(10);
+        myStackQueue.enqueue(20);
+        myStackQueue.enqueue(30);
+        myStackQueue.dequeue();
+        System.out.println(myStackQueue);
     }
 
     public static Queue<Integer> reverseQueue(Queue<Integer> queue){
