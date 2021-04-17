@@ -14,10 +14,19 @@ public class MyStackQueue {
     public Integer dequeue(){
         if (isEmpty())
             throw new IllegalStateException();
+        MoveValue1stStackTo2ndStack();
+        return reverseStack.pop();
+    }
+
+    public Integer peek(){
+        MoveValue1stStackTo2ndStack();
+        return reverseStack.peek();
+    }
+
+    private void MoveValue1stStackTo2ndStack() {
         if (reverseStack.isEmpty())
             while (!stack.isEmpty())
                 reverseStack.push(stack.pop());
-        return reverseStack.pop();
     }
 
     public boolean isEmpty(){
