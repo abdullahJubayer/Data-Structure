@@ -5,28 +5,22 @@ import java.util.Stack;
 
 public class MyStackQueue {
     Stack<Integer> stack=new Stack<>();
-    Stack<Integer> reverseStack;
+    Stack<Integer> reverseStack =new Stack<>();
 
     public void enqueue(int item){
         stack.push(item);
     }
 
     public Integer dequeue(){
-        if (stack.isEmpty())
+        if (isEmpty())
             throw new IllegalStateException();
-        reverseStack=new Stack<>();
-        while (!stack.isEmpty()){
-            reverseStack.push(stack.pop());
-        }
-        var font=reverseStack.pop();
-        while (!reverseStack.isEmpty()){
-            stack.push(reverseStack.pop());
-        }
-        return font;
+        if (reverseStack.isEmpty())
+            while (!stack.isEmpty())
+                reverseStack.push(stack.pop());
+        return reverseStack.pop();
     }
 
-    @Override
-    public String toString() {
-        return Arrays.toString(stack.toArray());
+    public boolean isEmpty(){
+        return stack.isEmpty() && reverseStack.isEmpty();
     }
 }

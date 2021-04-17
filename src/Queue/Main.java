@@ -34,8 +34,10 @@ public class Main {
         myStackQueue.enqueue(10);
         myStackQueue.enqueue(20);
         myStackQueue.enqueue(30);
-        myStackQueue.dequeue();
-        System.out.println(myStackQueue);
+        System.out.println(myStackQueue.dequeue());
+        System.out.println(myStackQueue.dequeue());
+        System.out.println(myStackQueue.dequeue());
+        System.out.println(myStackQueue.dequeue());
     }
 
     public static Queue<Integer> reverseQueue(Queue<Integer> queue){
