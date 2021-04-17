@@ -20,13 +20,14 @@ public class Main {
 //        System.out.println(queue.poll());
 //        System.out.println(queue);
 
-        MyArrayQueue myArrayQueue=new MyArrayQueue();
-        myArrayQueue.add(10);
-        myArrayQueue.add(20);
-        myArrayQueue.add(30);
-        myArrayQueue.add(30);
-        myArrayQueue.add(30);
-        myArrayQueue.offer(30);
+        MyArrayQueue myArrayQueue=new MyArrayQueue(5);
+        myArrayQueue.enqueue(5);
+        myArrayQueue.enqueue(20);
+        myArrayQueue.enqueue(20);
+        myArrayQueue.enqueue(20);
+        myArrayQueue.enqueue(20);
+        myArrayQueue.dequeue();
+        myArrayQueue.enqueue(30);
         System.out.println(myArrayQueue);
     }
 

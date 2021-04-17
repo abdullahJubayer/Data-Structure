@@ -3,57 +3,43 @@ package Queue;
 import java.util.Arrays;
 
 public class MyArrayQueue {
-    private int[] queue = new int[5];
-    private int last = 0;
-    private int first = 0;
+    private int[] queue;
+    private int font = 0;
+    private int rear;
+    private int count;
 
+
+    public MyArrayQueue(int size){
+        queue=new int[size];
+    }
 
     //[ 0, 0 , 0 ,0]
     // f       l
-    public void add(int val) {
-        if (last == queue.length)
+    public void enqueue(int val) {
+        if (count == queue.length)
             throw new IllegalStateException();
         else
-            queue[last++] = val;
-    }
-
-    public void offer(int val) {
-        if (last < queue.length)
-            queue[last++] = val;
+            queue[rear] = val;
+            rear=(rear+1)%queue.length;
+            count++;
     }
 
 
-    public void remove() {
-        if (first == last)
+    public int dequeue() {
+        if (font == count)
             throw new IllegalStateException();
-        else
-            queue[first++] = 0;
-
-    }
-
-    public int peek() {
-        if (first == last)
-            throw new IllegalStateException();
-        else
-            return queue[first];
-    }
-
-    public int poll() {
-        if (first == last)
-            throw new IllegalStateException();
-        else {
-            var element = queue[first];
-            remove();
-            return element;
+        else{
+            var fontItem=queue[font];
+            queue[font]=0;
+            font=(font+1)%queue.length;
+            count--;
+            return fontItem;
         }
-    }
 
-    public boolean isEmpty() {
-        return first == last;
     }
 
     @Override
     public String toString() {
-        return Arrays.toString(Arrays.copyOfRange(queue, first, last));
+        return Arrays.toString(queue);
     }
 }
