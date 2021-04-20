@@ -30,14 +30,24 @@ public class Main {
 //        myArrayQueue.enqueue(30);
 //        System.out.println(myArrayQueue);
 
-        MyStackQueue myStackQueue=new MyStackQueue();
-        myStackQueue.enqueue(10);
-        myStackQueue.enqueue(20);
-        myStackQueue.enqueue(30);
-        System.out.println(myStackQueue.dequeue());
-        System.out.println(myStackQueue.dequeue());
-        System.out.println(myStackQueue.dequeue());
-        System.out.println(myStackQueue.dequeue());
+//        MyStackQueue myStackQueue=new MyStackQueue();
+//        myStackQueue.enqueue(10);
+//        myStackQueue.enqueue(20);
+//        myStackQueue.enqueue(30);
+//        System.out.println(myStackQueue.dequeue());
+//        System.out.println(myStackQueue.dequeue());
+//        System.out.println(myStackQueue.dequeue());
+//        System.out.println(myStackQueue.dequeue());
+
+        MyPriorityQueue myPriorityQueue=new MyPriorityQueue();
+        myPriorityQueue.add(5);
+        myPriorityQueue.add(10);
+        myPriorityQueue.add(11);
+        myPriorityQueue.add(2);
+        myPriorityQueue.add(1);
+        myPriorityQueue.add(0);
+        System.out.println(myPriorityQueue.remove());
+        System.out.println(myPriorityQueue);
     }
 
     public static Queue<Integer> reverseQueue(Queue<Integer> queue){
