@@ -5,51 +5,26 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println( findFirstNonRepeatedNumberUsingHash("abcaddddb"));;
+        System.out.println( findFirstNonRepeatedCharacter("abcad d ddb"));;
     }
 
 
     //Time Complexity of This Method is O(n^2)
-    public static char findFirstNonRepeatedNumber(String str) {
-        char[] chars = str.toCharArray();
-        char first = 'N';
-        //[a , b ,c, a,d]
-        for (int c = 0; c < chars.length; c++) {
-            int flag = 0;
-            for (int i = 0; i < chars.length; i++) {
-                if (i != c && chars[c] == chars[i]) {
-                    flag = 1;
-                    break;
-                }
-            }
-            if (flag == 0) {
-                first = chars[c];
-                break;
-            }
-        }
+    public static char findFirstNonRepeatedCharacter(String str) {
+        Map<Character,Integer> map=new HashMap<>();
+        var chars=str.toCharArray();
+        for (Character character:chars)
+            if (map.containsKey(character))
+                map.put(character,map.get(character)+1);
+            else
+                map.put(character,1);
 
-        return first;
+
+            for (Character c:chars)
+                if (map.get(c)==1)
+                    return c;
+
+        return Character.MIN_VALUE;
     }
 
-    public static Character findFirstNonRepeatedNumberUsingHash(String str) {
-        Map<Character, Integer> hash = new HashMap<>();
-        char[] chars = str.toCharArray();
-        for (int c = 0; c < chars.length; c++) {
-            int count = 0;
-            for (int i = 0; i < chars.length; i++) {
-                if (i != c && chars[c] == chars[i]) {
-                    count++;
-                }
-            }
-            hash.put(chars[c], count);
-        }
-
-        char first=0;
-        for (Map.Entry<Character, Integer> item : hash.entrySet())
-            if (item.getValue() == 0) {
-                first = item.getKey();
-                break;
-            }
-        return first;
-    }
 }
