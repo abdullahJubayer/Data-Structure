@@ -1,4 +1,6 @@
-import java.util.*
+package LeetCode
+
+import LeetCode.easy.RemoveDuplicatesFromSortedArray
 
 class Play {
     fun removeDuplicate(arr:IntArray): IntArray {
@@ -23,6 +25,6 @@ class Play {
 }
 
 fun main() {
-    val arr= intArrayOf(1,1,2,2,2,3,4)
-    print(Play().removeDuplicate(arr).contentToString())
+    val arr= intArrayOf(-1,0,2,2,2,3,4)
+    print(RemoveDuplicatesFromSortedArray().removeDuplicates(arr).contentToString())
 }
