@@ -1,6 +1,8 @@
 package LeetCode
 
+import LeetCode.easy.FindIndexOfTheFirstOccurrenceInAString
 import LeetCode.easy.RemoveDuplicatesFromSortedArray
+import LeetCode.easy.RemoveElement
 
 class Play {
     fun removeDuplicate(arr:IntArray): IntArray {
@@ -25,6 +27,5 @@ class Play {
 }
 
 fun main() {
-    val arr= intArrayOf(-1,0,2,2,2,3,4)
-    print(RemoveDuplicatesFromSortedArray().removeDuplicates(arr).contentToString())
+    print(FindIndexOfTheFirstOccurrenceInAString().strStr(haystack = "butsad", needle = "sad"))
 }
