@@ -69,6 +69,32 @@ public class BinaryBalancedTree {
         }
         return  1 + Math.max(height(root.left), height(root.right));
     }
+
+    int min(){
+        return minNode(rootNode);
+    }
+
+    int max(){
+        return maxNode(rootNode);
+    }
+
+    private int minNode(Node root){
+        if (isLeaf(root)){
+            return root.data;
+        }
+        return Math.min(root.data,Math.min(minNode(root.left), minNode(root.right)));
+    }
+
+    private int maxNode(Node root){
+        if (isLeaf(root)){
+            return root.data;
+        }
+        return Math.max(root.data,Math.max(maxNode(root.left), maxNode(root.right)));
+    }
+
+    private boolean isLeaf(Node root){
+        return root.left == null && root.right == null;
+    }
 }
 
 

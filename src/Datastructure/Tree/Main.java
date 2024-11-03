@@ -13,6 +13,8 @@ public class Main {
         System.out.println("hasItem : "+binaryTree.hasItem(0));
         System.out.println("hasItem : "+binaryTree.hasItem(6));
         System.out.println("Height : " + binaryTree.height());
+        System.out.println("Max Val : " + binaryTree.max());
+        System.out.println("Min Val : " + binaryTree.min());
 
         DFS dfs = new DFS();
         dfs.preOrder(binaryTree.getRootNode());
