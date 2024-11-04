@@ -78,6 +78,25 @@ public class BinaryBalancedTree {
         return maxNode(rootNode);
     }
 
+    boolean isEqual(BinaryBalancedTree tree) {
+        if (tree==null)
+            return false;
+        if(rootNode != null && tree.rootNode == null)
+            return false;
+        if (rootNode == null && tree.rootNode != null)
+            return false;
+        return isEqual(rootNode,tree.rootNode);
+    }
+    private boolean isEqual(Node node1, Node node2) {
+        if (node1 == null && node2 == null) {
+            return true;
+        }
+        else if (node1.data == node2.data) {
+            return isEqual(node1.left, node2.left) && isEqual(node1.right, node2.right);
+        }else
+            return false;
+    }
+
     private int minNode(Node root){
         if (isLeaf(root)){
             return root.data;
